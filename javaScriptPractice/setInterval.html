@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+</head>
+<body style="background-color: #666; color:white">
+    <h1>study about clearInterval and setInterval </h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+
+<!-- <script>
+     let intervalId;
+
+        const tellMe = function () {
+            const sayHello = function () {
+                console.log("Welcome");
+            };
+
+            if (!intervalId) {
+                intervalId = setInterval(sayHello, 1000);
+            }
+        };
+
+        const stopTell = function () {
+            clearInterval(intervalId);
+            intervalId = null; 
+        };
+    const start = document.querySelector("#start").addEventListener("click",tellMe )
+    document.querySelector("#stop").addEventListener("click",stopTell)
+</script> -->
+
+<script>
+    // change color by useing interval method
+
+    let makeColour = function(){
+        const hexaVal = "0123456789ABCDEF"
+        let col = "#"
+
+        for(let i =0 ;i<6 ;i++){
+            col += hexaVal[Math.floor(Math.random() * 10)];
+        
+        }
+        return col ;        
+    }
+
+    
+
+    const body = document.querySelector("body")
+
+    let intervalId ;
+
+    const startChangBG = function(){
+        const addColour = function(){
+            body.style.backgroundColor = makeColour()
+        }
+        if(intervalId == null){
+        intervalId =  setInterval(addColour,1000)
+
+        }
+    }
+
+    const stopChangBG = function(){
+        clearInterval(intervalId)
+        intervalId = null 
+    }
+
+    document.querySelector("#start").addEventListener("click",startChangBG)
+    document.querySelector("#stop").addEventListener("click",stopChangBG)
+
+</script>
+</html>

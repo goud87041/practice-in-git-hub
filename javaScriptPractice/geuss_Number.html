@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guessing Number Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #a2c2e6, #d6e6f2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 350px;
+    }
+
+    h1 {
+      color: #1e3a8a;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #1d4ed8;
+    }
+
+    #result,
+    #attemptsLeft {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #111827;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Guess the Number Game</h1>
+    <p>Guess a number between 1 and 100. You have 10 attempts.</p>
+
+    <label for="guessField">Enter your guess:</label>
+    <input type="number" id="guessField" placeholder="Type your number here">
+
+    <button>Submit Guess</button>
+
+    <p id="result">Your result will appear here.</p>
+    <p id="attemptsLeft">Attempts left: 10</p>
+  </div>
+</body>
+
+<script>
+
+  const ans = Math.floor(Math.random() * 100)
+  const user_guess = document.getElementsByTagName("input")[0]
+  const submit_button = document.getElementsByTagName("button")[0]
+  let result = document.getElementById("result")
+  const left_attempts = document.querySelector("#attemptsLeft")
+  let attempts = 10
+  console.log(result);
+
+  console.log(ans);
+
+
+
+  submit_button.addEventListener("click",
+    function () {
+      // console.log("inside the function");
+
+      const Enter_val = Number(user_guess.value)
+      // console.log(Enter_val);
+     if (user_guess.value.trim() === "") { // trim removes spaces
+    result.innerText = "Enter a number";
+    result.style.color = "red";
+    return;
+}
+
+      if (!Number.isInteger(Enter_val)) {
+        console.log("inside the if condition");
+        result.innerText = "enter and integer number"
+        result.style.color = "red"
+
+
+      } else {
+        attempts--
+        if (attempts > 0) {
+
+          if (Number(ans) == Number(Enter_val)) {
+            result.innerText = "you are geuss correct Number"
+            result.style.color = "green"
+          } else if (Number(ans) < Number(Enter_val)) {
+            result.innerText = "you are geuss grater Number"
+            result.style.color = "green"
+          } else {
+            result.innerText = "you are geuss small Number"
+            result.style.color = "green"
+          }
+        }
+        else {
+          result.innerText = "you lose"
+          result.style.color = "red"
+          submit_button.disabled = true
+          submit_button.style.backgroundColor = "red"
+          submit_button.innerText = "you have to restart the game"
+        }
+        left_attempts.innerText = `Attempts left : ${attempts}`
+
+        // console.log(" i am inside the else");
+
+
+
+
+
+
+      }
+
+      // console.log(user_guess.target.value)
+    }
+  )
+
+  // checkingForNum(ans,user_guess)
+
+
+
+
+</script>
+
+</html>

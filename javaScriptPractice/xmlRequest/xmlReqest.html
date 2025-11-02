@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile Card — Image, Flowers & Name</title>
+  <style>
+    :root {
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      padding: 32px;
+      background: linear-gradient(180deg, #e9f0ff, var(--bg));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .preview {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      max-width: 320px;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 100%;
+      max-width: 260px;
+      height: 180px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: linear-gradient(90deg, #f8fafc, #eef2ff);
+      display: block;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 6px;
+      color: #1e293b;
+    }
+
+    .flowers {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 500px) {
+      .preview {
+        width: 90%;
+        padding: 20px;
+      }
+
+      .avatar {
+        height: 160px;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+    }
+  </style>
+
+  <!-- <script src="xmlRequest.js"/> -->
+</head>
+<body>
+  <div class="preview" id="preview">
+    <img
+      src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNDAwJyBoZWlnaHQ9JzIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nNDAwJyBoZWlnaHQ9JzIwMCcgcng9JzE0JyByeT0nMTQnIGZpbGw9JyNlZWZmZmYnLz48dGV4dCB4PScyMCUnIHk9JzUwJScgZm9udC1zaXplPScyMCcgdGV4dC1hbmNob3I9J21pZGRsZScgZmlsbD0nI2E0YTJhMSc+UExBQ0VIT0xERVI8L3RleHQ+PC9zdmc+"
+      alt="placeholder"
+      class="avatar"
+      id="cardImage"
+    />
+    <div>
+      <div class="name" id="cardName">Git Hub user :   Name</div>
+      <div class="flowers" id="cardFlowers">Nombers flowers</div>
+    </div>
+  </div>
+    <script src="xmlRequest.js"></script>
+
+</body>
+
+
+</html>

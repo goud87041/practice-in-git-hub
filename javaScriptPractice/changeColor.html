@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .outerBox{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+    .inside{
+        padding: 20px 30px;
+       border: 3px solid black;
+       cursor: pointer;
+       
+    }
+    #green{
+        background-color: green;
+    }
+
+    #blue{
+        background-color: blue;
+    }
+
+    #yellow{
+        background-color: yellow;
+    }
+
+    #red{
+        background-color: red;
+    }
+
+    </style>
+</head>
+<body >
+    <div class="outerBox">
+        <div class="inside" id="green">green</div>
+        <div class="inside" id="blue">blue</div>
+        <div class="inside" id="yellow">yellow</div>
+        <div class="inside" id="red">red</div>
+    </div>
+</body>
+
+<script>
+    const backGroundColor = document.getElementsByTagName("body")
+    console.log(backGroundColor);
+
+    const allBox = document.querySelectorAll(".inside")
+
+    console.log(allBox);
+
+    allBox.forEach(box =>{
+        box.addEventListener('click' ,()=>{
+            
+            document.body.style.backgroundColor = box.id
+            
+        })
+    })    
+    
+    </script>
+</html>

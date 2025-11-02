@@ -1,0 +1,88 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator</title>
+
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+    }
+
+    .outer_div{
+        border: 2px solid black;
+        padding: 50px;
+        border-radius: 15px;
+    }
+
+    .inner_div{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 10px;
+        padding: 10px 0px;
+        border-radius: 20px;
+    }
+
+    input{
+        padding: 5px;
+        width: 100px;
+    }
+
+    button{
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="outer_div">
+    <div class="inner_div">
+        <span>Enter your age :</span> 
+        <input id="input_for_age" type="text">
+    </div>
+
+    <div class="inner_div">
+        <span>Enter your weight (kg) :</span> 
+        <input id="input_for_weight" type="text">
+    </div>
+
+    <div class="inner_div">
+        <span>Enter your height (cm) :</span> 
+        <input id="input_for_height" type="text">
+    </div>
+
+    <div class="inner_div">
+        <button onclick="calculateBMI()">Calculate BMI</button>
+    </div>
+
+    <div class="inner_div">
+        <span>Here is your BMI :</span> 
+        <input id="input_for_result" type="text" readonly>
+    </div>
+</div>
+
+<script>
+    function calculateBMI() {
+        const weight = parseFloat(document.getElementById('input_for_weight').value);
+        const heightCm = parseFloat(document.getElementById('input_for_height').value);
+        
+        if(isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0){
+            alert("Please enter valid weight and height!");
+            return;
+        }
+
+        const heightM = heightCm / 100;
+        const bmi = weight / (heightM * heightM);
+        document.getElementById('input_for_result').value = bmi.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

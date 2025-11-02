@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Clock</title>
+
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f3f3f3;
+    }
+
+    .Fst_Div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .Snd_Div {
+      border: 3px solid black;
+      padding: 20px 30px;
+      text-align: center;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="Fst_Div">
+    <div class="Snd_Div">
+      <div>Hour</div>
+      <div><h1 class="Hour">00</h1></div>
+    </div>
+
+    <div class="Snd_Div">
+      <div>Minute</div>
+      <div><h1 class="Minute">00</h1></div>
+    </div>
+
+    <div class="Snd_Div">
+      <div>Second</div>
+      <div><h1 class="Second">00</h1></div>
+    </div>
+  </div>
+
+  <script>
+    const hour = document.querySelector(".Hour");
+    const minute = document.querySelector(".Minute");
+    const second = document.querySelector(".Second");
+
+    function changeTime() {
+      const now = new Date();
+
+      // get hours, minutes, seconds and format them
+      const hours = now.getHours().toString().padStart(2, "0");
+      const minutes = now.getMinutes().toString().padStart(2, "0");
+      const seconds = now.getSeconds().toString().padStart(2, "0");
+
+      // update text
+      hour.textContent = hours;
+      minute.textContent = minutes;
+      second.textContent = seconds;
+    }
+
+    // update immediately once, then every second
+    changeTime();
+    setInterval(changeTime, 1000);
+  </script>
+</body>
+</html>
