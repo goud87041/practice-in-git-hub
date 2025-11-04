@@ -27,7 +27,7 @@ const promiseThree = new Promise(function (resolve, reject) {
 })
 
 const promiseThreeTwo = new Promise(function(resolve , reject){
-    const error = true ;
+    const error = false ;
     if(!error){
         resolve({
             name :"abhi",
